@@ -13,6 +13,12 @@ npm install
 This will install the dependencies required to run the APP.
 
 ```shell
+npm run seed
+```
+
+This will seed the database.
+
+```shell
 npm run dev
 ```
 
