@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Items } from './Items';
-// import styles from './App.module.css';
-// import Welcome from './components/Welcome/Welcome';
+import { Items } from './pages/home/items';
+import styles from './App.module.css';
 
 // import apiURL from '../api';
 
@@ -24,10 +23,13 @@ function App() {
   }, []);
 
   return (
-    <main>
-      <h1>Inventory Management APP</h1>
-      <Items items={items} />
-    </main>
+    <>
+      <main>
+        <h1>Inventory Management APP</h1>
+        <Items items={items} />
+      </main>
+      {/* <button>Add new item</button> */}
+    </>
   )
 
   // return (
@@ -37,7 +39,6 @@ function App() {
   //     </header>
   //   </div>
   // );
-
 }
 
 export default App;

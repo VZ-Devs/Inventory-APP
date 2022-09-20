@@ -1,0 +1,71 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  border-radius: 8px;
+  width: 250px;
+  height: 300px;
+  outline: 1px solid black;
+  transition: transform 500ms ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05)
+}
+
+.card .media {
+  position: relative;
+}
+
+.card .media img{
+  width:100%;
+  height: 150px;
+  /* object-fit: content; */
+}
+
+.card .media .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card .media .tag {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
+.card .media .price {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.card .content {
+  position: relative;
+}
+
+.card .content .quantity {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.card .content .description {
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* max-height: 150px; */
+  --padding: 1rem;
+  padding: var(--padding);
+  /* max-width: 19ch; */
+  color: rgb(0 0 0 / 0.9);
+  /* background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% / 1)
+  ) */
+}
