@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import * as path from 'path'
 dotenv.config();
 
 import { defineConfig } from 'vite';
@@ -16,6 +17,9 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
+  },
+  resolve: {
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
   build: {
     outDir: 'dist/app',
