@@ -7,8 +7,8 @@ export const Item = ({data: {title, price, description, category, image, quantit
     <article className={styles.card}>
       <div className={styles.media}>
         <img src={image} alt={image} />
-        <h2 className={styles.title}>{title.substring(0, 9)}</h2>
-        <span className={styles.tag}>{category.substring(0, 9)}</span>
+        <h2 className={styles.title}>{title}</h2>
+        <span className={styles.tag}>{category}</span>
         <h3 className={styles.price}>{price}</h3>
       </div>
       <div className={styles.content}>
