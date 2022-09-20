@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Items } from './pages/home/items';
 import styles from './App.module.css';
+import AddItem from './pages/add-item';
+// importing a named component
 
 // import apiURL from '../api';
 
 function App() {
 
   const [items, setItems] = useState([]);
+  const [show, setShow] = useState(true);
 
   async function fetchItems() {
     try {
@@ -17,19 +21,20 @@ function App() {
       console.log("Oh no an error! ", err)
     }
   }
-
+    
   useEffect(() => {
     fetchItems();
   }, []);
 
   return (
-    <>
-      <main>
-        <h1>Inventory Management APP</h1>
-        <Items items={items} />
-      </main>
-      {/* <button>Add new item</button> */}
-    </>
+    <main>
+      <h1>Inventory Management APP</h1>
+      <Routes>
+        <Route path="/" element={<Items items={items} />} />
+        <Route path="/add-item" element={<AddItem />} />
+        {/* <Route path="/view-item" element={<ViewItem />} /> */}
+      </Routes>
+    </main>     
   )
 
   // return (
