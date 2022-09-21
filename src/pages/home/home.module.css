@@ -8,7 +8,7 @@
   border-radius: 8px;
   width: 250px;
   height: 300px;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
   transition: transform 500ms ease;
   overflow: hidden;
 }
@@ -18,54 +18,80 @@
 }
 
 .card .media {
-  position: relative;
-}
-
-.card .media img{
-  width:100%;
-  height: 150px;
-  /* object-fit: content; */
+  position:relative;
 }
 
 .card .media .title {
   position: absolute;
+  max-width: 12ch;
   top: 0;
   left: 0;
+  color: white;
+  margin: 8px;
+  z-index: 1;
 }
 
 .card .media .tag {
   position: absolute;
+  background-color: white;
+  border: none;
+  padding: 3px 8px 4px;
+  border-radius: 45px;
+  margin: 8px;
   top: 40px;
   left: 0;
+  z-index: 1;
 }
 
 .card .media .price {
   position: absolute;
   top: 0;
   right: 0;
+  color: white;
+  margin: 8px;
+  z-index: 1;
+}
+
+.card .media::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.card .media img{
+  width: 100%;
+  height: 150px;
 }
 
 .card .content {
   position: relative;
+  background: white;
+  height: 150px;
 }
+
 
 .card .content .quantity {
   position: absolute;
   top: 0;
   right: 0;
+  padding: 8px;
 }
 
 .card .content .description {
   font-size: 1.2rem;
   font-weight: 600;
-  /* max-height: 150px; */
   --padding: 1rem;
   padding: var(--padding);
-  /* max-width: 19ch; */
-  color: rgb(0 0 0 / 0.9);
-  /* background: linear-gradient(
-    hsl(0 0% 0% / 0),
-    hsl(20 0% 0% / 0.3) 20%,
-    hsl(0 0% 0% / 1)
-  ) */
+  max-width: 19ch;
+  color: rgb(0 0 0 / 0.87);
+}
+
+.add-button {
+  display: flex;
+  /* width: 100vw; */
+  justify-content: center;
+  padding: 3.0rem 0 4.0rem 0;
+  text-decoration:none;
 }
