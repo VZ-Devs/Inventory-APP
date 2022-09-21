@@ -3,14 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 import { Items } from './pages/home/items';
 import styles from './App.module.css';
 import AddItem from './pages/add-item';
+import ViewItem from './pages/view-item';
 // importing a named component
 
 // import apiURL from '../api';
 
 function App() {
-
   const [items, setItems] = useState([]);
-  const [show, setShow] = useState(true);
 
   async function fetchItems() {
     try {
@@ -18,10 +17,10 @@ function App() {
       const data = await response.json();
       setItems(data);
     } catch (err) {
-      console.log("Oh no an error! ", err)
+      console.log('Oh no an error! ', err);
     }
   }
-    
+
   useEffect(() => {
     fetchItems();
   }, []);
@@ -32,10 +31,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Items items={items} />} />
         <Route path="/add-item" element={<AddItem />} />
-        {/* <Route path="/view-item" element={<ViewItem />} /> */}
+        <Route path="/item/:slug" element={<ViewItem />} />
       </Routes>
-    </main>     
-  )
+    </main>
+  );
 
   // return (
   //   <div className={styles.App}>
