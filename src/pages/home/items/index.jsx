@@ -15,7 +15,9 @@ export const Items = ({ items }) => {
           })
         }
       </section>
-      <Link to="/add-item">Add new item</Link>
+      <Link className={styles['add-button']} to="/add-item">
+        <Button>Add new item</Button>
+      </Link>
     </>
   );
 };
