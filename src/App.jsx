@@ -4,6 +4,7 @@ import { Items } from './pages/home/items';
 import styles from './App.module.css';
 import AddItem from './pages/add-item';
 import ViewItem from './pages/view-item';
+import 'font-awesome/css/font-awesome.min.css';
 // importing a named component
 
 // import apiURL from '../api';
