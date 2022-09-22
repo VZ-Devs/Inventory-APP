@@ -5,12 +5,15 @@ import styles from './App.module.css';
 import AddItem from './pages/add-item';
 import ViewItem from './pages/view-item';
 import 'font-awesome/css/font-awesome.min.css';
+import { useLocation } from 'react-router'
+
 // importing a named component
 
 // import apiURL from '../api';
 
 function App() {
   const [items, setItems] = useState([]);
+  const location = useLocation()
 
   async function fetchItems() {
     try {
@@ -24,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [location.key]);
 
   return (
     <main>
