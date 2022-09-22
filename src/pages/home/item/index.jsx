@@ -11,7 +11,7 @@ export const Item = ({ data }) => {
         <img src={image} alt={image} />
         <h2 className={styles.title}>{title}</h2>
         <span className={styles.tag}>{category}</span>
-        <h3 className={styles.price}>{price}</h3>
+        <h3 className={styles.price}>${price}</h3>
       </div>
       <div className={styles.content}>
         <p className={styles.quantity}>
