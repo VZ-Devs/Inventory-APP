@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 1.5rem;
+  --black-on-white: rgb(0 0 0 / 0.87);;
 }
 
 .card {
@@ -11,6 +12,7 @@
   /* outline: 1px solid black; */
   transition: transform 500ms ease;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -41,6 +43,7 @@
   top: 40px;
   left: 0;
   z-index: 1;
+  color: var(--black-on-white);
 }
 
 .card .media .price {
@@ -51,6 +54,10 @@
   margin: 8px;
   z-index: 1;
 }
+
+/* .card .media .price:before {
+  content: '$';
+} */
 
 .card .media::after {
   content: '';
@@ -77,15 +84,17 @@
   top: 0;
   right: 0;
   padding: 8px;
+  color: var(--black-on-white);
 }
 
 .card .content .description {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   --padding: 1rem;
   padding: var(--padding);
   max-width: 19ch;
-  color: rgb(0 0 0 / 0.87);
+  color: var(--black-on-white);
+  text-decoration: none;
 }
 
 .add-button {
