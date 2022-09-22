@@ -5,8 +5,16 @@ import styles from './view-item.module.css';
 function ViewItem() {
   const location = useLocation();
   const item = location.state.data;
-  const { title, price, description, category, image, quantity } = item;
+  const { id, slug, title, price, description, category, image, quantity } = item;
   const navigate = useNavigate();
+
+  const deleteItem = async (id) => {
+    const response = await fetch(`http://localhost:3001/api/items/${id}`,{ 
+        method: 'DELETE', 
+    });
+    const data = await response.json();
+    navigate('/')
+  }
 
   return (
     <>
@@ -36,7 +44,7 @@ function ViewItem() {
       <section className={styles.section_btn_container}>
         <button className={styles.button_edit}>Edit</button>
 
-        <button className={styles.button_delete}>Delete</button>
+        <button onClick={() => deleteItem(id)} className={styles.button_delete}>Delete</button>
       </section>
 
       <section className={styles.prev_btn}>
