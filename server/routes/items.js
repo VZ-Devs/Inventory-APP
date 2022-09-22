@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-// GET /wiki/:slug
+// GET /items/:slug
 router.get('/:slug', async (req, res, next) => {
   try {
     const item = await Item.findOne({
@@ -39,5 +39,22 @@ router.get('/:slug', async (req, res, next) => {
     next(error);
   }
 });
+
+// DELETE /items/:id
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await Item.destroy({
+        where: {
+          id: req.params.id
+        }
+    })
+    const items = await Item.findAll();
+    console.log(items)
+    res.send(items)
+  } catch(error) {
+    next(error)
+  }
+})
+
 
 module.exports = router;

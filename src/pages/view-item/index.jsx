@@ -5,10 +5,18 @@ import styles from './view-item.module.css';
 function ViewItem() {
   const location = useLocation();
   const item = location.state.data;
-  const { title, price, description, category, image, quantity } = item;
+  const { id, slug, title, price, description, category, image, quantity } = item;
   const navigate = useNavigate();
 
   console.log(item.image);
+
+  const deleteItem = async (id) => {
+    const response = await fetch(`http://localhost:3001/api/items/${id}`,{ 
+        method: 'DELETE', 
+    });
+    const data = await response.json();
+    navigate('/')
+  }
 
   // title, price, description, category, image, quantity,
 
@@ -20,7 +28,7 @@ function ViewItem() {
         <div>
           <h2 className={styles.title}>{title}</h2>
           {/* <figure>{item.image}</figure> */}
-          <img className={styles.image} src={item.image} />
+          <img className={styles.image} src={image} />
         </div>
 
         <div className={styles.article}>
@@ -30,6 +38,7 @@ function ViewItem() {
           <div className={styles.price}>{`Price: ${price}`}</div>
         </div>
       </section>
+      <button onClick={() => deleteItem(id)}>Delete</button>
     </>
   );
 }
